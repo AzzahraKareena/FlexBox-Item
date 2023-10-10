@@ -1,0 +1,76 @@
+import React, { useState } from 'react';
+
+class PreviewLayout extends React.Component {
+  render() {
+    const { label, children, values, selectedValue, setSelectedValue } = this.props;
+
+    return (
+      <div className="container">
+        <label className="label">{label}</label>
+        <div className="row">
+          {values.map((value) => (
+            <button
+              key={value}
+              onClick={() => setSelectedValue(value)}
+              className={`button ${selectedValue === value && 'selected'}`}
+            >
+              {value}
+            </button>
+          ))}
+        </div>
+        <div className="container">{children}</div>
+      </div>
+    );
+  }
+}
+
+const PositionLayout = () => {
+  const [position, setPosition] = useState('relative');
+
+  return (
+    <div className="container">
+      <label className="label">position</label>
+      <div className="row">
+        <div
+          className={`box ${position === 'relative' ? 'relative' : 'absolute'}`}
+          style={{ top: 25, left: 25, backgroundColor: 'powderblue' }}
+        />
+        <div
+          className={`box ${position === 'relative' ? 'relative' : 'absolute'}`}
+          style={{ top: 50, left: 50, backgroundColor: 'skyblue' }}
+        />
+        <div
+          className={`box ${position === 'relative' ? 'relative' : 'absolute'}`}
+          style={{ top: 75, left: 75, backgroundColor: 'steelblue' }}
+        />
+      </div>
+      <div className="row">
+        <button
+          onClick={() => setPosition('relative')}
+          className={`button ${position === 'relative' && 'selected'}`}
+        >
+          relative
+        </button>
+        <button
+          onClick={() => setPosition('absolute')}
+          className={`button ${position === 'absolute' && 'selected'}`}
+        >
+          absolute
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default () => (
+  <div className="App">
+    <PositionLayout />
+    <PreviewLayout
+      label="position"
+      values={['relative', 'absolute']}
+      setSelectedValue={(value) => setPosition(value)}
+    >
+      {/* Anda dapat menambahkan child components di sini jika diperlukan */}
+    </PreviewLayout>
+  </div>
+);

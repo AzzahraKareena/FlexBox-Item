@@ -1,0 +1,60 @@
+/* RowGapAndColumnGap.css */
+
+.preview-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-container {
+    display: flex;
+    gap: 4px;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  .items-center {
+    align-items: center;
+  }
+  
+  .container {
+    flex: 1;
+    margin-top: 8px;
+    background-color: aliceblue;
+    max-height: 400px;
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    grid-gap: 10px;
+    align-content: flex-start;
+  }
+  
+  .box {
+    width: 50px;
+    height: 80px;
+  }
+  
+  .box1 {
+    background-color: orangered;
+  }
+  
+  .box2 {
+    background-color: orange;
+  }
+  
+  .box3 {
+    background-color: mediumseagreen;
+  }
+  
+  .box4 {
+    background-color: deepskyblue;
+  }
+  
+  .box5 {
+    background-color: mediumturquoise;
+  }
+  
+  label {
+    margin-bottom: 4px;
+    font-weight: bold;
+  }
+  
